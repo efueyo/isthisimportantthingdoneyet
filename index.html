@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Retro Blinking NO</title>
+    <style>
+      body {
+        font-family: 'Comic Sans MS', 'Trebuchet MS', sans-serif; /* classic 90s font */
+        background-color: #008080;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      .blinking-text {
+        font-size: 72px;
+        color: white;
+        animation: blink 1s step-end infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dateDisplay" class="blinking-text">NO</div>
+  </body>
+  <script>
+    function updateDateTime() {
+      const now = new Date()
+      const dateString = `As of ${now.toLocaleString()}, <br> NO`
+      document.getElementById('dateDisplay').innerHTML = dateString
+    }
+
+    setInterval(updateDateTime, 1000) // Update the date and time every second
+    updateDateTime() // Update the date and time immediately
+  </script>
+</html>
